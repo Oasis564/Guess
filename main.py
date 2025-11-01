@@ -13,15 +13,37 @@ Plan:
 import random
 
 words = ["Sky", "Ground", "Space", "Groundhog", "Fire"]
-rWords = random.choice(words)
+random_word = random.choice(words)
 
-name = input("Please enter your name: ")
+name = input("=Please enter your name=: ")
 
-gLetters = ''
+guessed_letters = ''
 choices = 10
 
+print(random_word)
+
+def contains_letter(s: str) -> bool:
+    """Return True if the string contains at least one letter (Unicode-aware)."""
+    return any(ch.isalpha() for ch in s)
+
+class SmartString(str):
+    def contains(self, sub: str) -> bool:
+        return sub in self
+
 while choices > 0:
-    guess = input("Enter the letters for the unknown word")
-    if guess == rWords:
+    guess = input("=Enter the letters for the unknown word=: ")
+    # Show the letters if guessed corectly and not show them if not guessed correctly
+    for i in range(len(random_word)):
+        # I need to compare if the current letter of the word is present inside the guessed letter
+        
+        if guessed_letters.co:
+            print(random_word[i])
+        else:
+            print("-")
+            
+
+        
+    
+            
         
 
