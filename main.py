@@ -12,7 +12,7 @@ Plan:
 
 import random
 
-words = ["Sky", "Ground", "Space", "Groundhog", "Fire"]
+words = ["sky", "ground", "space", "groundhog", "fire"]
 random_word = random.choice(words)
 
 name = input("=Please enter your name=: ")
@@ -32,18 +32,27 @@ class SmartString(str):
 
 while choices > 0:
     guess = input("=Enter the letters for the unknown word=: ")
+    guessed_letters = f"{guessed_letters}{guess}"
     # Show the letters if guessed corectly and not show them if not guessed correctly
     for i in range(len(random_word)):
         # I need to compare if the current letter of the word is present inside the guessed letter
         
-        if guessed_letters.co:
+        if random_word[i] in guessed_letters:
             print(random_word[i])
         else:
             print("-")
             
-
-        
+    # Now we have to make the lives and mistakes so there is a form of punishment for not getting it correctly.
     
-            
-        
-
+    if guess in random_word:
+        print("You have gotten the correct letter!")
+    else:
+        choices = choices-1
+        print("You have gotten the letter wrong, you have ", choices, " lives remaining...")
+        if choices == 0:
+            print("You have lost, ", name, "!")
+            break
+    if guessed_letters == random_word:
+        print("Good job", name, "! You have won the game!!!")
+        break
+    
